@@ -106,12 +106,12 @@ class DocumentProcessor:
             processed_chunks.append(metadata)
             
             # Print chunk information for inspection
-            print(f"\nChunk {i}:")
-            if metadata['headings']:
-                print(f"Section: {' > '.join(metadata['headings'])}")
-            print(f"Page: {metadata['page_info']}")
-            print(f"Type: {metadata['content_type']}")
-            print("-" * 40)
+            # print(f"\nChunk {i}:")
+            # if metadata['headings']:
+            #     print(f"Section: {' > '.join(metadata['headings'])}")
+            # print(f"Page: {metadata['page_info']}")
+            # print(f"Type: {metadata['content_type']}")
+            # print("-" * 40)
         
         # Create vector database
         print("\nCreating vector database...")
