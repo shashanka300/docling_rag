@@ -33,9 +33,9 @@ class DocumentProcessor:
         pipeline_options.do_table_structure = True
         pipeline_options.table_structure_options.do_cell_matching = True
         pipeline_options.ocr_options.lang = ["en"]
+        pipeline_options.table_structure_options.mode = TableFormerMode.ACCURATE
         pipeline_options.accelerator_options = AcceleratorOptions(
-            num_threads=4,
-            device=AcceleratorDevice.MPS
+            num_threads=8, device=AcceleratorDevice.MPS
         )
 
         self.converter = DocumentConverter(
