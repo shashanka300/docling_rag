@@ -18,12 +18,13 @@ from sentence_transformers import SentenceTransformer
 from langchain_ibm import WatsonxLLM
 import lancedb
 from tempfile import mkdtemp
+import os
 
 class DocumentProcessor:
-    def __init__(self, api_key: str, project_id: str):
+    def __init__(self):
         """Initialize document processor with necessary components"""
-        self.api_key = api_key
-        self.project_id = project_id
+        self.api_key = os.getenv("WATSONX_API_KEY")
+        self.project_id = os.getenv("WATSONX_PROJECT_ID")
         self.setup_document_converter()
         self.setup_ml_components()
         
@@ -190,13 +191,10 @@ Make use of the section information and page numbers in your answer when relevan
 def main():
     logging.basicConfig(level=logging.INFO)
     
-    processor = DocumentProcessor(
-        api_key="your-api-key",
-        project_id="your-project-id"
-    )
+    processor = DocumentProcessor()
     
     # Process document
-    pdf_path = "your_document.pdf"
+    pdf_path = "sample/InternLM.pdf"
     processor.process_document(pdf_path)
     
     # Example query
